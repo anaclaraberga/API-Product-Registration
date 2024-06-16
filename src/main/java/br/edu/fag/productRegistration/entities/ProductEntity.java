@@ -1,16 +1,25 @@
 package br.edu.fag.productRegistration.entities;
 
+import br.edu.fag.productRegistration.RequestDTO.ProductRequestDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Table(name="products")
 @Entity(name="products")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of="id")
 public class ProductEntity {
 
     @Id
@@ -25,4 +34,10 @@ public class ProductEntity {
 
     @Column(nullable = false)
     private Integer price;
+
+    public ProductEntity(ProductRequestDTO dto) {
+        this.image = dto.image();
+        this.title = dto.title();
+        this.price = dto.price();
+    }
 }
