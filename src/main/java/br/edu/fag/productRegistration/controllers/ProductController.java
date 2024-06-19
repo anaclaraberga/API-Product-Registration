@@ -24,10 +24,10 @@ public class ProductController {
     private ProductRepository repository;
 
     @PostMapping
-    public void createProduct(@RequestBody ProductRequestDTO dto) {
+    public ProductEntity createProduct(@RequestBody ProductRequestDTO dto) {
         ProductEntity product = new ProductEntity(dto);
 
-        repository.save(product);
+        return repository.save(product);
     }
 
     @GetMapping
