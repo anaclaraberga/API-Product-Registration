@@ -1,20 +1,22 @@
 import './App.css'
-import { Card } from './components/card';
-import { ProductData } from './interface/ProductData';
+import { Card } from './components/card'
+import { useProductData } from './hooks/useProductData'
 
 function App() {
 
-  const data: ProductData[] = [];
+  const { data } = useProductData();
 
   return (
-      <div className='container'>
+      <div className="container">
         <h1>Registro de Produtos</h1>
-        <div className='card-grid'>
-          {data.map(productData => <Card
-          price={productData.price}
-          title={productData.title}
-          image={productData.image}>
-          </Card>)}
+        <div className="card-grid">
+          {data && data.length > 0 && data.map(productData =>
+            <Card
+              price={productData.price}
+              title={productData.title}
+              image={productData.image}
+            />
+          )}
         </div>
       </div>
   )
