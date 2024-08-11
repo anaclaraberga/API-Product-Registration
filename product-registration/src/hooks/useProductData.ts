@@ -1,19 +1,15 @@
-import axios, { AxiosPromise } from "axios";
-import { ProductData } from "../interface/ProductData";
-import { useQuery } from "@tanstack/react-query";
+import axios, { AxiosPromise } from "axios"
+import { ProductData } from "../interface/ProductData"
+import { useQuery } from "@tanstack/react-query"
 
-const API_URL = "https://localhost:8080";
-
-interface IUseProductData {
-    data: ProductData[]
-}
+const API_URL = "http://localhost:8080";
 
 const fetchData = async (): AxiosPromise<ProductData[]> => {
     const response = axios.get(API_URL + '/product');
     return response;
 }
 
-export function useProductData(): IUseProductData {
+export function useProductData(){
     const query = useQuery({
         queryFn: fetchData,
         queryKey: ['product-data'],
@@ -21,6 +17,7 @@ export function useProductData(): IUseProductData {
     })
 
     return {
-        data: query.data?.data || []
+        ...query,
+        data: query.data?.data
     }
 }
