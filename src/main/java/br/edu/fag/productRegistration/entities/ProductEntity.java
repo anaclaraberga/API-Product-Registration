@@ -1,5 +1,7 @@
 package br.edu.fag.productRegistration.entities;
 
+import java.math.BigDecimal;
+
 import br.edu.fag.productRegistration.RequestDTO.ProductRequestDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -33,7 +35,7 @@ public class ProductEntity {
     private String image;
 
     @Column(nullable = false)
-    private Integer price;
+    private BigDecimal price;
 
     public ProductEntity(ProductRequestDTO dto) {
         this.image = dto.image();
