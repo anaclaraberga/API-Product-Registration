@@ -26,7 +26,7 @@ function App() {
           )}
         </div>
         {isModalOpen && <CreateModal closeModal={handleOpenModal}/>}
-        <button onClick={handleOpenModal}>Novo produto</button>
+        <button className="btn-secondary" onClick={handleOpenModal}>Adicionar produto</button>
       </div>
   )
 }
