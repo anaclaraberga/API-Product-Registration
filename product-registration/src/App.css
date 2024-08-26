@@ -13,7 +13,7 @@
 }
   
 .btn-secondary {
-    background-color: #0275d8;
+    background-color: #6b9837;
     color: white;
     font-weight: 500;
     position: fixed;
@@ -23,7 +23,7 @@
 }
   
 .container button:hover {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 7px 0px;
+    box-shadow: rgba(169, 169, 172, 0.2) 0px 7px 7px 0px;
     transform: scale(1.1);
 }
   

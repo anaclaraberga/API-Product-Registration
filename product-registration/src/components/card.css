@@ -36,11 +36,15 @@
 }
 
 .cardButton {
-    margin: 1rem;
+    margin: 0.5rem;
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
     font-size: 0.8em;
     font-weight: 400;
     font-family: inherit;
+
+    background-color: #6b9837;
+    color: white;
+    font-weight: 500;
 }
