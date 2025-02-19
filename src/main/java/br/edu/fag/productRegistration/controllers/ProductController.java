@@ -3,7 +3,9 @@ package br.edu.fag.productRegistration.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -50,5 +52,14 @@ public class ProductController {
         List<ProductResponseDTO> product = repository.findAll().stream().map(ProductResponseDTO::new).toList();
 
         return product;
+    }
+
+    @CrossOrigin(origins="*", allowedHeaders="*")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteProductById(@PathVariable("id") Long id) {
+
+        repository.deleteById(id);
+
+        return ResponseEntity.noContent().build();
     }
 }
